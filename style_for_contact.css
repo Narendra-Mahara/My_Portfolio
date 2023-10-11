@@ -1,0 +1,85 @@
+body {
+    background-color: #fff;
+}
+
+nav {
+    
+    height: 60px;
+    width: 100%;
+    background-color: rgb(10, 10, 50);
+    display: flex;
+}
+
+.right_side {
+    color: white;
+    font-size: 25px;
+    font-family: 'Barlow', sans-serif;
+    height: 50px;
+    width: 50%;
+    /* background-color: red; */
+    text-align: center;
+    display: flex;
+    margin-right: 700px;
+    /* margin-right: 25px; */
+    /* -webkit-text-stroke: 1.5px rgb(12, 72, 236); //stroke */
+    
+}
+
+.left_side {
+    height: 50px;
+    width: 100%;
+    /* background-color: rgb(242, 236, 236); */
+    font-size: 18px ;
+ 
+}
+
+a {
+    text-decoration:  none;
+    color: white;
+   
+    
+    /* margin-right: 50px; */
+    
+}
+
+
+ul {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+li {
+    list-style-type: none;
+  
+}
+
+a:hover {
+    color:aqua;
+    text-decoration: underline;
+    /* transform: scalex(2); */
+    /* scale: 2; */
+}
+
+.contact {
+    background-color: yellowgreen;
+    text-align: center;
+}
+
+img {
+    height: 50px;
+    width: 50px;
+    margin:5px 0px 1px 100px;
+}
+
+/* .facebook {
+    height: 100px;
+    width: 100px;
+} */
+
+p {
+
+    padding: 5px 0px 5px 2px;
+}
