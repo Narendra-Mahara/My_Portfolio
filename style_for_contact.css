@@ -2,12 +2,19 @@ body {
     background-color: #fff;
 }
 
+header {
+    height: 60px;
+    width: 100% ;
+}
 nav {
     
     height: 60px;
     width: 100%;
     background-color: rgb(10, 10, 50);
     display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .right_side {
@@ -63,23 +70,60 @@ a:hover {
     /* scale: 2; */
 }
 
+hr {
+    width: 75%;
+}
+
 .contact {
-    background-color: yellowgreen;
     text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
-img {
-    height: 50px;
-    width: 50px;
-    margin:5px 0px 1px 100px;
+.all-handles {
+    height: 500px;
+    width: 270px;
+    /* background-color: rgb(159, 136, 136); */
+    margin-left: 200px;
+
 }
 
-/* .facebook {
-    height: 100px;
-    width: 100px;
-} */
+.facebook {
+    font-size: 30px;
+    padding-left: 5px;
+    margin-top: 20px;
+    color: blue;
 
-p {
+}
 
-    padding: 5px 0px 5px 2px;
+.instagram {
+    font-size: 30px;
+    margin-top: 20px;
+    color: #d6249f;
+
+}
+
+.telegram {
+
+    font-size: 30px;
+    margin-top: 20px;
+    color: blue;
+
+}
+
+.whatsapp {
+    font-size: 30px;
+    margin-top: 20px;
+    color: green;
+
+}
+
+.linkedin {
+    font-size: 30px;
+    margin-top: 20px;
+    color: blue;
+}
+
+#logo:hover {
+    cursor: pointer;
 }
