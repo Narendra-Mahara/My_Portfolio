@@ -93,6 +93,7 @@ hr {
     padding-left: 5px;
     margin-top: 20px;
     color: blue;
+    border: 2px solid transparent;
 
 }
 
@@ -100,6 +101,7 @@ hr {
     font-size: 30px;
     margin-top: 20px;
     color: #d6249f;
+    border: 2px solid transparent;
 
 }
 
@@ -108,22 +110,64 @@ hr {
     font-size: 30px;
     margin-top: 20px;
     color: blue;
-
+    border: 2px solid transparent;
 }
 
 .whatsapp {
     font-size: 30px;
     margin-top: 20px;
     color: green;
-
+    border: 2px solid transparent;
 }
 
 .linkedin {
     font-size: 30px;
     margin-top: 20px;
     color: blue;
+    border: 2px solid transparent;
 }
+
+.github {
+    font-size: 30px;
+    margin-top: 20px;
+    color: black;
+    border: 2px solid transparent;
+}
+
+.facebook:hover {
+    border: 2px solid blue;
+    scale: 1.4;
+
+}
+
+.instagram:hover {
+    border: 2px solid #d6249f;
+    scale: 1.4;
+
+}
+
+.telegram:hover {
+    border: 2px solid blue;
+    scale: 1.4;
+}
+
+.whatsapp:hover {
+    border: 2px solid green;
+    scale: 1.4;
+}
+
+.linkedin:hover {
+    border: 2px solid blue;
+    scale: 1.4;
+}
+
+.github:hover {
+    border: 2px solid black;
+    scale: 1.4;
+}
+
 
 #logo:hover {
     cursor: pointer;
 }
+
