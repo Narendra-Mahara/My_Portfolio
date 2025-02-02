@@ -1,6 +1,20 @@
-import { Link } from "react-router-dom";
-
+import { useState } from "react";
+import { account, ID } from "../lib/appwrite";
 const Login = () => {
+  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function login(email, password) {
+    try {
+      let response = await account.createEmailPasswordSession(email, password);
+      setLoggedInUser(await account.get());
+      // console.log("User logged in successfully", response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div className="flex pt-10 h-dvh  justify-center  bg-gray-900 text-white">
       <form
@@ -18,6 +32,8 @@ const Login = () => {
             name="email"
             className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-600"
             required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="mb-6">
@@ -30,15 +46,23 @@ const Login = () => {
             name="password"
             className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-600"
             required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <button
           type="submit"
           className="w-full p-2 bg-purple-600 rounded hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 cursor-pointer"
+          onClick={(e) => {
+            e.preventDefault();
+            login(email, password);
+          }}
         >
           Login
         </button>
-        <p className="mt-2 text-blue-600 hover:cursor-pointer">Forgot password?</p>
+        <p className="mt-2 text-blue-600 hover:cursor-pointer">
+          Forgot password?
+        </p>
       </form>
     </div>
   );
