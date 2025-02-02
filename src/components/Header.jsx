@@ -39,7 +39,7 @@ const Header = () => {
             <RxCross2 size={25} color="gray" />
           </div>
           <ul className="flex flex-col w-full items-center text-center gap-5 relative text-white mt-10 pl-5 ">
-            <Link className="w-full" to={"/home"}>
+            <Link className="w-full" to={"/"}>
               <li className="flex items-center gap-4 text-lg">
                 <MdHome size={23} color="white" />
                 Home
