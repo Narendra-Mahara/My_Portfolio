@@ -1,8 +1,12 @@
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div className="flex pt-10 h-dvh sm:items-center justify-center sm:min-h-screen bg-gray-900 text-white">
-      <form action="https://example.com" className="bg-gray-800 p-8 rounded-lg shadow-md w-80 h-[500px]">
+    <div className="flex pt-10 h-dvh  justify-center  bg-gray-900 text-white">
+      <form
+        action="https://example.com"
+        className="bg-gray-800 p-8 rounded-lg shadow-md w-80 h-fit"
+      >
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
         <div className="mb-4">
           <label htmlFor="email" className="block mb-2">
@@ -30,10 +34,11 @@ const Login = () => {
         </div>
         <button
           type="submit"
-          className="w-full p-2 bg-purple-600 rounded hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600"
+          className="w-full p-2 bg-purple-600 rounded hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 cursor-pointer"
         >
           Login
         </button>
+        <p className="mt-2 text-blue-600 hover:cursor-pointer">Forgot password?</p>
       </form>
     </div>
   );
