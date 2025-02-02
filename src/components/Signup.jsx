@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 const Signup = () => {
   return (
-    <div className="flex sm:items-center justify-center h-dvh bg-gray-900 text-white pt-10">
-      <form className="bg-gray-800 p-8 rounded-lg shadow-md w-80 h-[500px]">
+    <div className="flex pt-10 h-dvh  justify-center  bg-gray-900 text-white">
+      <form className="bg-gray-800 p-8 rounded-lg shadow-md w-80 h-fit">
         <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
         <div className="mb-4">
           <label htmlFor="username" className="block mb-2">
@@ -45,6 +46,12 @@ const Signup = () => {
         >
           Sign Up
         </button>
+        <p className="mt-2">
+          Already signed in? Login
+          <Link to={"/login"} className="text-blue-500 underline ml-1 cursor-pointer">
+             here
+          </Link>
+        </p>
       </form>
     </div>
   );
