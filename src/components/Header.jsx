@@ -70,8 +70,8 @@ const Header = () => {
         </div>
 
         {/* //menus for desktop */}
-        <div className="flex items-center gap-20">
-          <div className="hidden text-lg sm:flex md:text-2xl lg:text-3xl">
+        <div className="hidden sm:flex items-center gap-10 md:gap-20">
+          <div className=" text-lg sm:flex md:text-2xl lg:text-3xl">
             <ul className="text-white flex gap-5">
               <NavLink
                 className={({ isActive }) =>
@@ -114,7 +114,7 @@ const Header = () => {
               </NavLink>
             </ul>
           </div>
-          <div className="buttons hidden sm:flex">
+          <div className="sm:flex">
             <Link
               to="/login"
               className="mx-2 my-1 md:my-0 bg-gray-800 text-white px-5 py-2 rounded"
