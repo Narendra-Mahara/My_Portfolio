@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { account, ID } from "../lib/appwrite";
@@ -6,17 +7,12 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-
+  const navigate = useNavigate();
   async function signup() {
     try {
-      const response = await account.create(
-        ID.unique(),
-        email,
-        password,
-        username
-      );
+      await account.create(ID.unique(), email, password, username);
       // console.log("User created successfully", response);
-      login(email, password);
+      navigate("/login");
     } catch (error) {
       console.error(error);
     }

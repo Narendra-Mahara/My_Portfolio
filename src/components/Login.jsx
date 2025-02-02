@@ -1,15 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { account, ID } from "../lib/appwrite";
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   async function login(email, password) {
     try {
-      let response = await account.createEmailPasswordSession(email, password);
+      let user = await account.createEmailPasswordSession(email, password);
       setLoggedInUser(await account.get());
-      // console.log("User logged in successfully", response);
+      console.log("setloggedinuser::",setLoggedInUser)
+      navigate("/dashboard");
+      console.log("User logged in successfully", user);
     } catch (error) {
       console.error(error);
     }
@@ -60,6 +63,7 @@ const Login = () => {
         >
           Login
         </button>
+
         <p className="mt-2 text-blue-600 hover:cursor-pointer">
           Forgot password?
         </p>
