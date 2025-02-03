@@ -6,7 +6,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white">
-      <main className="flex-grow flex flex-col items-center justify-center">
+      <main className="flex-grow flex flex-col items-center p-14">
         <h2 className="text-4xl mb-4">Welcome! to My Portfolio</h2>
         <p className="text-lg  mb-8 text-slate-500">
           Explore my projects and learn more about my skills and experience.
