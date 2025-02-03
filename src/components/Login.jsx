@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { account, ID } from "../lib/appwrite";
 const Login = () => {
+  const [loading, setLoading] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,18 +11,23 @@ const Login = () => {
     try {
       let user = await account.createEmailPasswordSession(email, password);
       setLoggedInUser(await account.get());
-      console.log("setloggedinuser::",setLoggedInUser)
+      console.log("setloggedinuser::", setLoggedInUser);
       navigate("/dashboard");
       console.log("User logged in successfully", user);
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(true);
     }
   }
 
   return (
     <div className="flex pt-10 h-dvh  justify-center  bg-gray-900 text-white">
       <form
-        action="https://example.com"
+        onSubmit={(e) => {
+          e.preventDefault();
+          login(email, password);
+        }}
         className="bg-gray-800 p-8 rounded-lg shadow-md w-80 h-fit"
       >
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
@@ -55,13 +61,17 @@ const Login = () => {
         </div>
         <button
           type="submit"
-          className="w-full p-2 bg-purple-600 rounded hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 cursor-pointer"
-          onClick={(e) => {
-            e.preventDefault();
-            login(email, password);
-          }}
+          className="w-full p-2 bg-purple-600 rounded hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 cursor-pointer "
+          onClick={() => setLoading(true)}
         >
-          Login
+          {loading ? (
+            <div className="flex justify-center items-center gap-2">
+              <div>Login</div>
+              <div className="animate-spin h-5 w-5 rounded-full border-2 border-t-gray-900 "></div>
+            </div>
+          ) : (
+            "Login"
+          )}
         </button>
 
         <p className="mt-2 text-blue-600 hover:cursor-pointer">

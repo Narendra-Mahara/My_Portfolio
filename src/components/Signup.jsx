@@ -3,20 +3,25 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { account, ID } from "../lib/appwrite";
 const Signup = () => {
-  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
-  async function signup() {
+  const signup = async () => {
     try {
-      await account.create(ID.unique(), email, password, username);
-      // console.log("User created successfully", response);
+      const response = await account.create(
+        ID.unique(),
+        email,
+        password,
+        username
+      );
+      console.log("User created successfully", response);
       navigate("/login");
     } catch (error) {
       console.error(error);
     }
-  }
+  };
   return (
     <div className="flex pt-10 h-dvh  justify-center  bg-gray-900 text-white">
       <form className="bg-gray-800 p-8 rounded-lg shadow-md w-80 h-fit">
@@ -68,10 +73,18 @@ const Signup = () => {
           className="w-full p-2 bg-purple-600 rounded hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600"
           onClick={(e) => {
             e.preventDefault();
+            setLoading(true);
             signup();
           }}
         >
-          Sign Up
+          {loading ? (
+            <div className="flex justify-center items-center gap-2">
+              <div>Loading</div>
+              <div className="animate-spin h-5 w-5 rounded-full border-2 border-t-gray-900 "></div>
+            </div>
+          ) : (
+            "Sign Up"
+          )}
         </button>
         <p className="mt-2">
           Already signed in? Login
