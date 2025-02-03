@@ -1,17 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { MdHome } from "react-icons/md";
 import { AiFillMessage } from "react-icons/ai";
 import { IoLogoGithub } from "react-icons/io";
 import { BsFillPatchQuestionFill } from "react-icons/bs";
+import { account } from "../lib/appwrite";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [isLogged, setIsLogged] = useState(false);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  const checkLogin = () => {
+    account
+      .get()
+      .then((response) => {
+        setIsLogged(true);
+      })
+      .catch((error) => {
+        setIsLogged(false);
+      });
+  };
+
+  useEffect(() => {
+    checkLogin();
+  }, []);
 
   return (
     <>
@@ -114,7 +129,8 @@ const Header = () => {
               </NavLink>
             </ul>
           </div>
-          <div className="sm:flex">
+
+          <div className={` ${isLogged ? "hidden" : "sm:flex"}`}>
             <Link
               to="/login"
               className="mx-2 my-1 md:my-0 bg-gray-800 text-white px-5 py-2 rounded"
