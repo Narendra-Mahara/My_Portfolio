@@ -33,7 +33,7 @@ const Header = () => {
       <header className=" bg-gray-900 border-black border-b-2 p-4 flex  relative justify-between items-center  ">
         <div className="">
           <Link to={"/"}>
-            <img src="src/Logo/logo.png" alt="logo" height={10} width={30} />
+            <img src="/public/logo.png" alt="logo" height={10} width={30} />
           </Link>
         </div>
 
