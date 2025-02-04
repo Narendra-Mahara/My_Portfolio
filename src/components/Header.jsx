@@ -6,7 +6,7 @@ import { AiFillMessage } from "react-icons/ai";
 import { IoLogoGithub } from "react-icons/io";
 import { BsFillPatchQuestionFill } from "react-icons/bs";
 import { account } from "../lib/appwrite";
-
+import logo from "/public/logo.png";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
@@ -33,7 +33,7 @@ const Header = () => {
       <header className=" bg-gray-900 border-black border-b-2 p-4 flex  relative justify-between items-center  ">
         <div className="">
           <Link to={"/"}>
-            <img src="/public/logo.png" alt="logo" height={10} width={30} />
+            <img src={logo} alt="logo" height={10} width={30} />
           </Link>
         </div>
 
